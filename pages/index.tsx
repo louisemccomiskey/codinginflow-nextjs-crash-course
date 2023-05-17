@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps<
 > = async () => {
   
   const myHeaders = new Headers();
-  myHeaders.append("x-api-key", "yO1c4V4Hz4ewtakteVQPhf3z_-U5i0B3gugLQE4Ktr8");
+  myHeaders.append("x-api-key", process.env.NEWS_API_KEY);
   const response = await fetch(
     "https://api.newscatcherapi.com/v2/latest_headlines?countries=IE&topic=news",
     {

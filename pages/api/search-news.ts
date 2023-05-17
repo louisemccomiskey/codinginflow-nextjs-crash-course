@@ -25,7 +25,7 @@ export default async function handler(
   }
 
   const myHeaders = new Headers();
-  myHeaders.append("x-api-key", "yO1c4V4Hz4ewtakteVQPhf3z_-U5i0B3gugLQE4Ktr8");
+  myHeaders.append("x-api-key", process.env.NEWS_API_KEY);
   const response = await fetch(
     `https://api.newscatcherapi.com/v2/search?q=${searchQuery}&countries=IE&page_size=100`,
     {
@@ -33,7 +33,6 @@ export default async function handler(
     }
   );
 
-  const newsResponse: NewsResponse = await response.json();
-console.log(newsResponse, 'newsResponse'); 
+  const newsResponse: NewsResponse = await response.json(); 
   res.status(200).json(newsResponse.articles)
 }
